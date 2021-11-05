@@ -148,7 +148,7 @@ void* platform_set_memory(void* dest, i32 value, u64 size) {
 void platform_console_write(const char* message, u8 color) {
     HANDLE hcon = GetStdHandle(STD_OUTPUT_HANDLE);
 
-    static u8 logLevels[6] = {64, 4, 6, 2, 1, 8};
+    static u8 logLevels[6] = {64, color::RED, color::YELLOW, color::GREEN, color::TEAL, color::GRAY};
 
     SetConsoleTextAttribute(hcon, logLevels[color]);
 
