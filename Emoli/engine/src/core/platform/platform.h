@@ -8,7 +8,7 @@ typedef struct platform_state {
 
 enum color { DARKBLUE = 1, DARKGREEN, DARKTEAL, DARKRED, DARKPINK, DARKYELLOW, GRAY, DARKGRAY, BLUE, GREEN, TEAL, RED, PINK, YELLOW, WHITE };
 
-EM_API  b8 platform_startup(
+b8 platform_startup(
     platform_state* platform_state,
     const char* application_name,
     i32 x,
@@ -16,19 +16,19 @@ EM_API  b8 platform_startup(
     i32 width,
     i32 height);
 
-    EM_API void platform_shutdown(platform_state* platform_state);
+void platform_shutdown(platform_state* platform_state);
 
-    EM_API  b8 platform_pump_messages(platform_state* platform_state);
+b8 platform_pump_messages(platform_state* platform_state);
 
-    void* platform_allocate(u64 size, b8 aligned);
-    void   platform_free(void* block, b8 aligned);
-    void* platform_zero_memory(void* block, u64 size);
-    void* platform_copy_memory(void* dest, const void* source, u64 size);
-    void* platform_set_memory(void* dest, i32 value, u64 size);
+EM_API void* platform_allocate(u64 size, b8 aligned);
+EM_API void   platform_free(void* block, b8 aligned);
+void* platform_zero_memory(void* block, u64 size);
+void* platform_copy_memory(void* dest, const void* source, u64 size);
+void* platform_set_memory(void* dest, i32 value, u64 size);
 
-    void platform_console_write(const char* message, u8 color);
-    void platform_console_write_error(const char* message, u8 color);
+void platform_console_write(const char* message, u8 color);
+void platform_console_write_error(const char* message, u8 color);
 
-    f64 platform_get_absolute_time();
+f64 platform_get_absolute_time();
 
-    void platform_sleep(u64 ms);
+void platform_sleep(u64 ms);
