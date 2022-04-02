@@ -1,6 +1,7 @@
 #include "application.h"
 #include "logger.h"
 #include "platform/platform.h"
+#include "core/emmemory.h"
 #include "game_types.h"
 
 typedef struct application_state
@@ -72,6 +73,8 @@ EM_API b8 create(game* game_instance)
 
 EM_API b8 run()
 {
+    EM_INFO(get_memory_usage_str());
+
     while (app_state.is_running)
     {
         //NOTE: Game loop

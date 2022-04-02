@@ -3,11 +3,14 @@
 #include "core/application.h"
 #include "core/logger.h"
 #include "core/game_types.h"
+#include "core/emmemory.h"
 
 extern b8 create_game(game* out_game);
 
 int main() 
 {
+    init_memory();
+
     game game_inst;
 
     if (!create_game(&game_inst))
@@ -31,9 +34,11 @@ int main()
 //NOTE: Game loop entry
     if (!run())
     {
-        EM_INFO("Application failed to shutdown as properly.");
+        EM_INFO("Application failed to shutdown properly.");
         return 2;
     }
+
+    shutdown_memory();
 
     return 0;
 }
